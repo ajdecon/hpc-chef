@@ -13,3 +13,4 @@ default['munge']['key']    = "nfusdnfjkaniuownfnljdnvcuowanrljvnjnvuoandfnsjanvu
 # NFS share attributes
 default['nfs']['headnode_addr']    = default['slurm']['master_addr']
 default['nfs']['shared_dirs']      = ["/home"]
+default['nfs']['clients']          = default['slurm']['computes']
