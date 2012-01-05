@@ -56,14 +56,7 @@ HOSTS_DENY = /etc/hosts.deny
 #            'w' = weeks
 #            'y' = years
 #
-# never purge:
 PURGE_DENY = <%= @deny_purge %>
-#
-# purge entries older than 1 week
-#PURGE_DENY = 1w
-#
-# purge entries older than 5 days
-#PURGE_DENY = 5d
 #######################################################################
 
 #######################################################################
@@ -89,14 +82,7 @@ PURGE_DENY = <%= @deny_purge %>
 #
 # eg.   sshd: 127.0.0.1  # will block sshd logins from 127.0.0.1
 #
-# To block all services for the offending host:
-#BLOCK_SERVICE = ALL
-# To block only sshd:
 BLOCK_SERVICE  = <%= @deny_service %>
-# To only record the offending host and nothing else (if using
-# an auxilary file to list the hosts).  Refer to: 
-# http://denyhosts.sourceforge.net/faq.html#aux
-#BLOCK_SERVICE =    
 #
 #######################################################################
 

@@ -13,7 +13,7 @@ end
 
 template "/etc/denyhosts.conf" do
     source "denyhosts.conf.erb"
-    variables( :deny_purge => "5d", :deny_service => "sshd")
+    variables( :deny_purge => "12h", :deny_service => "sshd")
 end
 
 service "denyhosts" do 
