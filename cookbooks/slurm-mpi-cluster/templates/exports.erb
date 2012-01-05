@@ -1,0 +1,3 @@
+<% node.nfs['shared_dirs'].each do |dir| -%>
+<%= dir %>  <% node.nfs['clients'].each do |client| -%><%= client %>(rw) <% end -%>
+<% end -%>
