@@ -2,8 +2,8 @@
 # Put this file on all nodes of your cluster.
 # See the slurm.conf man page for more information.
 #
-ControlMachine=<%= node['slurm']['master'] %>
-ControlAddr=<%= node['slurm']['master_addr'] %>
+ControlMachine=<%= node.slurm['master'] %>
+ControlAddr=<%= node.slurm['master_addr'] %>
 #BackupController=
 #BackupAddr=
 # 
@@ -48,7 +48,7 @@ SlurmctldPort=6817
 SlurmdPidFile=/var/run/slurmd.pid
 SlurmdPort=6818
 SlurmdSpoolDir=/tmp/slurmd
-SlurmUser=slurm
+SlurmUser=<%= node.slurm['user'] %>
 #SrunEpilog=
 #SrunProlog=
 StateSaveLocation=/tmp
@@ -150,6 +150,6 @@ SlurmdLogFile=/tmp/slurmd.log
 # 
 # 
 # COMPUTE NODES 
-NodeName=<%= node['slurm']['computes'].join(',') %> NodeAddr=<%= node['slurm']['compute_addrs'].join(',') %> Procs=<%= node['slurm']['cpus'] %> State=UNKNOWN 
+NodeName=<%= node.slurm['computes'].join(',') %> NodeAddr=<%= node.slurm['compute_addrs'].join(',') %> Procs=<%= node.slurm['cpus'] %> State=UNKNOWN 
 
-PartitionName=<%= node['slurm']['part_name'] %> Nodes=<%= node['slurm']['computes'].join(',') %> Default=YES MaxTime=INFINITE State=UP
+PartitionName=<%= node.slurm['part_name'] %> Nodes=<%= node.slurm['computes'].join(',') %> Default=YES MaxTime=INFINITE State=UP

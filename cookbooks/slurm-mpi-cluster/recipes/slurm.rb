@@ -26,7 +26,7 @@ service "munge" do
 end
 
 # slurm configuration
-user(slurm['user'])
+user(node.slurm['user'])
 
 directory "/etc/slurm-llnl" do 
     owner "root"
