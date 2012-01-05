@@ -150,7 +150,7 @@ SlurmdDebug=3
 # 
 # 
 # COMPUTE NODES 
-<%= @computes.each do |c| %>
+<% @computes.each do |c| -%>
 NodeName=<%= c %> Procs=<%= @cpus %> State=UNKNOWN 
 <% end -%>
-PartitionName=<%= @part_name %> Nodes=<%= @computes.each do |c| %><%= c %>,<%= end -%> Default=YES MaxTime=INFINITE State=UP
+PartitionName=<%= @part_name %> Nodes=<% @computes.each do |c| %><%= c %>,<% end -%> Default=YES MaxTime=INFINITE State=UP
