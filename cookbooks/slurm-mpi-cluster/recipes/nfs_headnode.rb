@@ -10,7 +10,7 @@ template "/etc/exports" do
     mode "0644"
 end
 
-service "nfs" do
+service "nfs-kernel-server" do
     action [:enable,:start]
 end
 
