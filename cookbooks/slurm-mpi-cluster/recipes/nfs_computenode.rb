@@ -5,6 +5,8 @@
 # Note : this does not use a template, but instead adds 
 # a line to the existing fstab!
 
+package("nfs-common")
+
 file "/etc/fstab" do
 
     sourceip = node.nfs['headnode_addr']
