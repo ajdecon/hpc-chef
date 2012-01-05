@@ -150,5 +150,6 @@ SlurmdLogFile=/tmp/slurmd.log
 # 
 # 
 # COMPUTE NODES 
-NodeName=<%= @computes %> NodeAddr=<%= @compute_addrs %> Procs=<%= node['slurm']['cpus'] %> State=UNKNOWN 
-PartitionName=<%= node['slurm']['part_name'] %> Nodes=<%= @computes %> Default=YES MaxTime=INFINITE State=UP
+NodeName=<%= node['slurm']['computes'].join(',') %> NodeAddr=<%= node['slurm']['compute_addrs'].join(',') %> Procs=<%= node['slurm']['cpus'] %> State=UNKNOWN 
+
+PartitionName=<%= node['slurm']['part_name'] %> Nodes=<%= node['slurm']['computes'].join(',') %> Default=YES MaxTime=INFINITE State=UP
