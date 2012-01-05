@@ -10,7 +10,7 @@ user(slurm['user'])
 
 template "/etc/slurm/slurm.conf" do
     source "slurm.conf.erb"
-    variables( :slurm_master => slurm['master'], :slurm_computes => slurm['computes'], :part_name => slurm['part_name'] )
+    variables( :master => slurm['master'], :computes => slurm['computes'], :part_name => slurm['part_name'], :cpus => slurm['cpus'] )
 end
 
 service "slurm" do

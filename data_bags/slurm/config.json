@@ -1,4 +1,5 @@
 {
+    "id": "config",
     "master": "slmaster",
     "computes": [
         "slc01",
@@ -6,5 +7,6 @@
         "slc03"
     ],
     "part_name": "debug",
-    "user": "slurm"
+    "user": "slurm",
+    "cpus": "4"
 }
