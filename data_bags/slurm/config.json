@@ -1,0 +1,10 @@
+{
+    "master": "slmaster",
+    "computes": [
+        "slc01",
+        "slc02",
+        "slc03"
+    ],
+    "part_name": "debug",
+    "user": "slurm"
+}
