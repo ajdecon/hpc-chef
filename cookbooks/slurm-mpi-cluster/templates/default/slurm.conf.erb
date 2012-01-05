@@ -2,8 +2,8 @@
 # Put this file on all nodes of your cluster.
 # See the slurm.conf man page for more information.
 #
-ControlMachine=linux0
-#ControlAddr=
+ControlMachine=<%= @master %>
+ControlAddr=<%= @master_addr %>
 #BackupController=
 #BackupAddr=
 # 
@@ -130,9 +130,9 @@ JobCompType=jobcomp/none
 JobAcctGatherFrequency=30
 JobAcctGatherType=jobacct_gather/none
 SlurmctldDebug=3
-#SlurmctldLogFile=
+SlurmctldLogFile=/tmp/slurmctld.log
 SlurmdDebug=3
-#SlurmdLogFile=
+SlurmdLogFile=/tmp/slurmd.log
 #SlurmSchedLogFile= 
 #SlurmSchedLogLevel= 
 # 
@@ -150,7 +150,5 @@ SlurmdDebug=3
 # 
 # 
 # COMPUTE NODES 
-<% @computes.each do |c| -%>
-NodeName=<%= c %> Procs=<%= @cpus %> State=UNKNOWN 
-<% end -%>
-PartitionName=<%= @part_name %> Nodes=<% @computes.each do |c| %><%= c %>,<% end -%> Default=YES MaxTime=INFINITE State=UP
+NodeName=<%= @computes %> NodeAddr=<%= @compute_addrs %> Procs=<%= @cpus %> State=UNKNOWN 
+PartitionName=<%= @part_name %> Nodes=<%= @computes %> Default=YES MaxTime=INFINITE State=UP
