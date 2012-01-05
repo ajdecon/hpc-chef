@@ -10,5 +10,9 @@ template "/etc/exports" do
     mode "0644"
 end
 
+service "nfs" do
+    action [:enable,:start]
+end
+
 output = `exportfs -a`
 
