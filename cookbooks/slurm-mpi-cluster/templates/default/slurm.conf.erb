@@ -2,8 +2,8 @@
 # Put this file on all nodes of your cluster.
 # See the slurm.conf man page for more information.
 #
-ControlMachine=<%= @master %>
-ControlAddr=<%= @master_addr %>
+ControlMachine=<%= node['slurm']['master'] %>
+ControlAddr=<%= node['slurm']['master_addr'] %>
 #BackupController=
 #BackupAddr=
 # 
@@ -150,5 +150,5 @@ SlurmdLogFile=/tmp/slurmd.log
 # 
 # 
 # COMPUTE NODES 
-NodeName=<%= @computes %> NodeAddr=<%= @compute_addrs %> Procs=<%= @cpus %> State=UNKNOWN 
-PartitionName=<%= @part_name %> Nodes=<%= @computes %> Default=YES MaxTime=INFINITE State=UP
+NodeName=<%= @computes %> NodeAddr=<%= @compute_addrs %> Procs=<%= node['slurm']['cpus'] %> State=UNKNOWN 
+PartitionName=<%= node['slurm']['part_name'] %> Nodes=<%= @computes %> Default=YES MaxTime=INFINITE State=UP
