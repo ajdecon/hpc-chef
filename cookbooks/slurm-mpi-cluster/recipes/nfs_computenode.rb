@@ -7,6 +7,14 @@
 
 package("nfs-common")
 
+# Make sure the diretory to be exported exists
+node.nfs['shared_dirs'].each do |dir|
+    directory dir
+       action :create
+    end
+end
+
+
 file "/etc/fstab" do
 
     sourceip = node.nfs['headnode_addr']
@@ -18,21 +26,28 @@ file "/etc/fstab" do
         new_lines = new_lines + "#{sourceip}:#{d}  #{d}  nfs  defaults 0 0\n"
     end
 
+    print "*** Mount line: #{new_lines}\n"
+
     # Get current content, check for duplication
     only_if do
         current_content = File.read('/etc/fstab')
         current_content.index(new_lines).nil?
     end
 
-    # Set up the new file and content
+    print "*** Passed the conditional for current content\n"
+
+    # Set up the file and content
     owner "root"
     group "root"
     mode  "0644"
-    content do 
-        current_content = File.read('/etc/fstab')
-        current_content + new_lines
-    end
+    current_content = File.read('/etc/fstab')
+    new_content = current_content + new_lines
+    content new_content
 
     # Trigger the mount
     output = `mount -a`
+    puts "*** Mount output = #{output}"
+
 end
+
+

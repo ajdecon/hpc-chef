@@ -1,8 +1,8 @@
 # SLURM attributes
 default['slurm']['master']         = "ip-10-124-89-180"
 default['slurm']['master_addr']    = "67.202.52.146"
-default['slurm']['computes']       = [ "domU-12-31-38-00-6D-C2" ]
-default['slurm']['compute_addrs']  = [ "67.202.29.115" ]
+default['slurm']['computes']       = [ "domU-12-31-38-00-6D-C2", "ip-10-124-31-132" ]
+default['slurm']['compute_addrs']  = [ "67.202.29.115", "184.72.71.153" ]
 default['slurm']['part_name']      = "debug"
 default['slurm']['user']           = "slurm"
 default['slurm']['cpus']           = "1"
