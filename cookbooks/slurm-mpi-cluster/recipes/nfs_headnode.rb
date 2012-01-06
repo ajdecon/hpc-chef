@@ -11,11 +11,15 @@ end
 
 
 # Make sure the diretory to be exported exists
-node.nfs['shared_dirs'].each do |dir|
-    directory dir
+node.nfs['shared_dirs'].each do |d|
+    directory d do
+        mode "0777"
         action :create
     end
 end
+#    directory "#{dir}" do
+#        action :create
+#    end
 
 # Create the exports file and refresh the NFS exports
 template "/etc/exports" do
@@ -23,9 +27,10 @@ template "/etc/exports" do
     owner "root"
     group "root"
     mode "0644"
-
-    output = `exportfs -ra`
-    puts output
 end
 
+execute "exportfs" do
+    command "exportfs -a"
+    action :run
+end
 

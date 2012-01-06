@@ -9,8 +9,9 @@ package("nfs-common")
 
 # Make sure the diretory to be exported exists
 node.nfs['shared_dirs'].each do |dir|
-    directory dir
-       action :create
+    directory dir do
+        mode "0777"
+        action :create
     end
 end
 
@@ -44,10 +45,9 @@ file "/etc/fstab" do
     new_content = current_content + new_lines
     content new_content
 
-    # Trigger the mount
-    output = `mount -a`
-    puts "*** Mount output = #{output}"
-
 end
 
-
+execute "mount" do
+    command "mount -a"
+    action :run
+end
