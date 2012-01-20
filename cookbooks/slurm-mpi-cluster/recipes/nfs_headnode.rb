@@ -4,12 +4,6 @@
 package("nfs-common")
 package("nfs-kernel-server")
 
-# Start the NFS server
-service "nfs-kernel-server" do
-    action [:enable,:start]
-end
-
-
 # Make sure the diretory to be exported exists
 node.nfs['shared_dirs'].each do |d|
     directory d do
@@ -28,6 +22,12 @@ template "/etc/exports" do
     group "root"
     mode "0644"
 end
+
+# Start the NFS server
+service "nfs-kernel-server" do
+    action [:enable,:start,:restart]
+end
+
 
 execute "exportfs" do
     command "exportfs -a"
