@@ -1,7 +1,7 @@
 This Repo
 =========
 
-This repository is where I develop new cookbooks for my public projects. Many of these cookbooks may eventually be spun out into their own repos; for example, the SLURM cookbook I've been working on is probably worth publishing on its own. But this is a good place to see some of what I'm working on, and where my brain is at any given time.
+This repository is where I develop public cookbooks related to high-performance computing (HPC) and scientific computing. 
 
 The standard Chef Repo README follows for reference.
 
