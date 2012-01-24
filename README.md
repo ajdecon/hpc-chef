@@ -1,7 +1,9 @@
 This Repo
 =========
 
-This repository is where I develop public cookbooks related to high-performance computing (HPC) and scientific computing. 
+This repository is where I develop public cookbooks related to high-performance computing (HPC) and scientific computing, including:
+
+* `slurm-mpi-cluster` - A basic cookbook for building a compute cluster running SLURM as the resource manager.
 
 The standard Chef Repo README follows for reference.
 
