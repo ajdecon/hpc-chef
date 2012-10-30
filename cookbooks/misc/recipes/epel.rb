@@ -28,7 +28,7 @@ remote_file dest_file do
 end
 
 # Install with yum
-package "epel-release"
+package "epel-release" do
     action :install
     source dest_file
     provider Chef::Provider::Package::Rpm
