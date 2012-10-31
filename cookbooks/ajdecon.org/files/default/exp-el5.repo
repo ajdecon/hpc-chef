@@ -1,0 +1,5 @@
+[exp-el5]
+name = exp.ajdecon.org repository - EL5
+baseurl = https://exp.ajdecon.org/repo/el5/
+enabled=1
+gpgcheck=0
