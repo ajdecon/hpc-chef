@@ -11,7 +11,7 @@ if (el_version_string =~ /6\.\d/)
 elsif (el_version_string =~ /5\.\d/)
     repo_file = "exp-el5.repo"
 else
-    raise "Can't determine whether to use EPEL 5 or EPEL 6"
+    raise "Can't determine whether to use EL 5 or EL 6"
 end
 
 cookbook_file "#{repo_file}" do
