@@ -1,5 +1,0 @@
-[exp-el6]
-name = exp.ajdecon.org repository - EL6
-baseurl = https://exp.ajdecon.org/repo/el6/
-enabled=1
-gpgcheck=0
