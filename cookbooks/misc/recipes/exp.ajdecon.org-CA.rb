@@ -9,15 +9,18 @@
 
 cert_root = "/etc/pki/tls/certs"
 cert_name = "exp.ajdecon.org-CA.pem"
+hash_val = "a4c1d59c"
 
-cookbook_file "#{$cert_root}/#{$cert_name}" do
+package "openssl" do
+    action :install
+end
+
+cookbook_file "#{cert_root}/#{cert_name}" do
     source cert_name
     action :create
 end
 
-hash_val = `openssl x509 -noout -hash -in #{$cert_root}/#{$cert_name}`
-
-link "#{$cert_root}/#{$hash_val}.0" do
+link "#{cert_root}/#{hash_val}.0" do
     link_type :symbolic
-    to "#{$cert_root}/#{$cert_name}"
+    to "#{cert_root}/#{cert_name}"
 end
